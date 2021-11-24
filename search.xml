@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>寻找峰值</title>
+      <link href="/2021/11/24/%E5%AF%BB%E6%89%BE%E5%B3%B0%E5%80%BC/"/>
+      <url>/2021/11/24/%E5%AF%BB%E6%89%BE%E5%B3%B0%E5%80%BC/</url>
+      
+        <content type="html"><![CDATA[<h1 id="寻找峰值"><a href="#寻找峰值" class="headerlink" title="寻找峰值"></a>寻找峰值</h1><p>题目描述：峰值元素是指其值严格大于左右相邻值的元素。</p><p>给你一个整数数组 nums，找到峰值元素并返回其索引。数组可能包含多个峰值，在这种情况下，返回 任何一个峰值 所在位置即可。</p><p>且元素各不相同</p><p>你可以假设 nums[-1] = nums[n] = -∞ 。</p><p>你必须实现时间复杂度为 O(log n) 的算法来解决此问题</p><blockquote><p>解题思路：首先在已知条件中 nums[-1] = nums[n] = -∞</p><p>所以说明峰值是必然存在的，要么索引为0要么索引为nums.size()</p><p>介于本题只需要返回一个峰值的索引，所以可以使用二分查找的方法来查找索引</p><p>最重要的就是确定判断条件: nums[mid] 和nums[mid+1]进行比较</p><p>如果nums[mid] &gt; nums[mid+1],则在<strong>左</strong>半部分一定可以找到峰值，则可以确定的是mid一定比mid+1大，再以mid作为right去左半部分查找，不断缩小范围，直到只剩下两个数的时候；如果此时的mid-1&lt;mid则mid就是峰值，否则mid-1便是峰值</p><p>如果nums[mid] &lt; nums[mid+1],则在<strong>右</strong>半部分一定可以找到峰值</p></blockquote><p>总结：峰值就是左右相邻的两个元素均小于中间这个值   那么就可以以这个作为判断条件</p><p>中间值设为mid   mid&gt;mid+1 时就去左边查找      mid&lt;mid+1时就去右边查找     不断缩小范围一定可以查找到峰值</p><p><strong>示例 1：</strong></p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：nums = [1,2,3,1]</span><br><span class="line">输出：2</span><br><span class="line">解释：3 是峰值元素，你的函数应该返回其索引 2。</span><br></pre></td></tr></table></figure><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">findPeakElement</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = nums.<span class="built_in">size</span>()<span class="number">-1</span>;</span><br><span class="line">        <span class="comment">//题述可得左右边界为负无穷</span></span><br><span class="line">        <span class="comment">//峰值必然存在</span></span><br><span class="line">        <span class="comment">//只用返回一个峰值便可以来利用二分查找来做</span></span><br><span class="line">        <span class="keyword">while</span>(left &lt; right) &#123;</span><br><span class="line">            <span class="keyword">int</span> mid = left + (right - left)/<span class="number">2</span>;</span><br><span class="line">            <span class="comment">//如果nums[mid]&gt;nums[mid+1],在左半部分一定有峰值</span></span><br><span class="line">            <span class="comment">//最坏的情况：numd[mid] = nums[0] 且已知nums[mid]&gt;nums[mid+1]和nums[-1]=负无穷</span></span><br><span class="line">            <span class="keyword">if</span>(nums[mid] &gt; nums[mid+<span class="number">1</span>]) right = mid;</span><br><span class="line">            <span class="comment">//如果nums[mid]&lt;nums[mid+1],向右边递推</span></span><br><span class="line">            <span class="comment">//同理最差情况nums[nums.size()]是峰值</span></span><br><span class="line">            <span class="keyword">else</span> left = mid + <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> left;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Algorithm </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Leetcode </tag>
+            
+            <tag> C++ </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>查找元素在数组中首次和末次出现的位置</title>
       <link href="/2021/11/19/%E6%9F%A5%E6%89%BE%E5%85%83%E7%B4%A0%E9%A6%96%E6%AC%A1%E5%92%8C%E6%9C%AB%E6%AC%A1%E5%87%BA%E7%8E%B0%E7%9A%84%E4%BD%8D%E7%BD%AE/"/>
       <url>/2021/11/19/%E6%9F%A5%E6%89%BE%E5%85%83%E7%B4%A0%E9%A6%96%E6%AC%A1%E5%92%8C%E6%9C%AB%E6%AC%A1%E5%87%BA%E7%8E%B0%E7%9A%84%E4%BD%8D%E7%BD%AE/</url>
@@ -31,7 +58,7 @@
     
     
     <entry>
-      <title>rem</title>
+      <title>windows下结束进程</title>
       <link href="/2021/11/10/windos%E4%B8%8B%E7%BB%93%E6%9D%9F%E8%BF%9B%E7%A8%8B/"/>
       <url>/2021/11/10/windos%E4%B8%8B%E7%BB%93%E6%9D%9F%E8%BF%9B%E7%A8%8B/</url>
       
@@ -40,32 +67,7 @@
       
       <categories>
           
-          <category> C </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> LanguageStudy </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>hhh</title>
-      <link href="/2021/11/08/hello-world/"/>
-      <url>/2021/11/08/hello-world/</url>
-      
-        <content type="html"><![CDATA[<p>将很快</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> C++ </category>
+          <category> 杂记 </category>
           
       </categories>
       
