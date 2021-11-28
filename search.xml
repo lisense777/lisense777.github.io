@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>object-c语法学习</title>
+      <link href="/2021/11/28/Objective-c/"/>
+      <url>/2021/11/28/Objective-c/</url>
+      
+        <content type="html"><![CDATA[<h1 id="OC基本语法学习"><a href="#OC基本语法学习" class="headerlink" title="OC基本语法学习"></a>OC基本语法学习</h1><h2 id="1-基本数据类型"><a href="#1-基本数据类型" class="headerlink" title="1.基本数据类型"></a>1.基本数据类型</h2><p>char、int、float、double、<strong>BOOL（YES\NO）</strong></p><p>nil代表空值</p><p>在oc中的关键字添加@来区别</p><p>防止类名相同的情况通过添加前缀来解决：如NSString</p><p>输出方法：NSLog(@”hello”)或者NSLog(@”age is %i”,int)</p><blockquote><p>#import &lt;&gt; :引用系统文件，它用于对系统自带文件的引用，编译器会在系统文件目录下去查找该文件</p><p>#import “ “:引用用户自定义的文件，会先在用户目录下查找，再到安装目录去查找</p><p>使用#import有效地防止了头文件被重复引用；</p><p>而重复引用地后果可能是效率低下更严重者可能引起错误</p><p>比如相同地类不能定义两次</p></blockquote><h2 id="2-创建类"><a href="#2-创建类" class="headerlink" title="2.创建类"></a>2.创建类</h2><p>声明：Student.h</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#import &lt;Foundation/Foundation.h&gt;//Foundatiooon内部的Foundation.h文件</span><br><span class="line">@interface Student : NSObject &#123;</span><br><span class="line">    //定义成员变量</span><br><span class="line">    int age;</span><br><span class="line">&#125;</span><br><span class="line">//age的get方法</span><br><span class="line">//在此处声明的方法都是公有方法</span><br><span class="line">//用类名调用的静态方法 +</span><br><span class="line">//用对象调动的动态方法 -</span><br><span class="line">- (int)getAge;</span><br><span class="line">//一个冒号对应一个参数</span><br><span class="line">- (void)setAge:(int)newAge;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure><hr><p>实现：Student.m</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#import &quot;Student.h&quot;</span><br><span class="line">@implementation Student</span><br><span class="line">- (int)getAge &#123;</span><br><span class="line">    return age;//成员变量</span><br><span class="line">&#125;</span><br><span class="line">- (void)setAge:(int)newAge &#123;</span><br><span class="line">    //newAge是传进来的参数，设置成员变量中的age = 传进来的这个参数</span><br><span class="line">    age = newAge;</span><br><span class="line">&#125;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure><p>主函数：</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#import &lt;Foundation/Foundation.h&gt;</span><br><span class="line">#import &quot;Student.h&quot;</span><br><span class="line">int main(int argc,const char * argv[])</span><br><span class="line">&#123;</span><br><span class="line">    @autoreleasepool &#123;</span><br><span class="line">        //创建一个Sudent对象</span><br><span class="line">        //1.调用一个静态方法alloc分配内存</span><br><span class="line">        Student* stu = [Student alloc];</span><br><span class="line">        //2.初始化 init动态方法</span><br><span class="line">        //发送init信号到stu所指向的内存区域进行初始化</span><br><span class="line">        stu = [stu init];</span><br><span class="line">        //合并的初始化方法</span><br><span class="line">        Student *stu = [[Student alloc] init];</span><br><span class="line">        //调用方法</span><br><span class="line">        [stu setage:100];</span><br><span class="line">        int age = [stu getAge];</span><br><span class="line">        //释放对象</span><br><span class="line">        [stu release];</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>函数传参时两个参数的方法</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">- (void)setAge:(int)newAge andno:(int)newno;</span><br><span class="line"></span><br><span class="line">//实现</span><br><span class="line">- (void)setAge:(int)newAge andno:(int)newnp &#123;</span><br><span class="line">    age = newage;</span><br><span class="line">    no = newno;</span><br><span class="line">&#125;</span><br><span class="line">//主函数</span><br><span class="line">//调用这个方法</span><br><span class="line">[stu setage:15 andno:14]</span><br><span class="line">NSLog(@&quot;age is %i,no is %i&quot;,[stu getage],[stu getno]);</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Objective-c </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Objective-c </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>链表中删除重复元素</title>
       <link href="/2021/11/26/%E9%93%BE%E8%A1%A8%E5%88%A0%E9%99%A4%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0/"/>
       <url>/2021/11/26/%E9%93%BE%E8%A1%A8%E5%88%A0%E9%99%A4%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0/</url>
