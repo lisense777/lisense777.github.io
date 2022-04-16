@@ -154,7 +154,7 @@
       <link href="/2021/11/10/windos%E4%B8%8B%E7%BB%93%E6%9D%9F%E8%BF%9B%E7%A8%8B/"/>
       <url>/2021/11/10/windos%E4%B8%8B%E7%BB%93%E6%9D%9F%E8%BF%9B%E7%A8%8B/</url>
       
-        <content type="html"><![CDATA[<p><img src="/2021/11/10/windos%E4%B8%8B%E7%BB%93%E6%9D%9F%E8%BF%9B%E7%A8%8B/1636532289250.png" alt="1636532289250"></p>]]></content>
+        <content type="html"><![CDATA[<p><img src="/2021/11/10/windos%E4%B8%8B%E7%BB%93%E6%9D%9F%E8%BF%9B%E7%A8%8B/1636532289250.png" alt="1636532289250"></p><p>  推送至博客时 </p><p>需要在有.deploy_git和.github的一级进行推送</p><p>hexo g</p><p>hexo d</p><p>成功后会打印日志   或者可以自己在本地查看//hexo s  本地部署查看</p>]]></content>
       
       
       <categories>
